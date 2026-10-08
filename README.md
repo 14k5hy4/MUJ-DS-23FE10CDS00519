@@ -1,59 +1,62 @@
-# Argument Steelman ⚔️
+# NLP Project - Argument Steelman
 
-A tool that takes any argument or opinion and constructs the strongest possible counter-argument (steelman) against it. It also finds logical weaknesses, scores the argument, and suggests improvements.
+## Student Information
+- **Name**: Lakshya Gupta
+- **Registration Number**: 23FE10CDS00519
+- **Branch**: Computer Science & Engineering (Data Science)
+- **Batch**: Batch F
+- **Project Title**: Argument Steelman - NLP-Powered Counter-Argumentation & Debate Analysis
+- **GitHub Username**: 14k5hy4
+- **Training Program**: NLP & LLM Training Program
 
-## What is a Steelman?
+---
 
-A steelman is the opposite of a strawman. Instead of misrepresenting the opposing view to make it easier to attack, a steelman builds the **best and strongest version** of the counter-argument, forcing you to actually engage with the toughest criticism of your position.
+## Overview
+
+A web tool that takes any argument or opinion and performs a **steelman analysis** on it. A steelman is the opposite of a strawman — instead of attacking a weak version of an argument, it constructs the **strongest possible counter-argument**, identifies logical fallacies/biases, scores the reasoning (1-10), and suggests specific ways to strengthen the original claim.
+
+## Repository Structure
+
+```
+MUJ-DS-23FE10CDS00519/
+├── README.md               # Student info and project documentation
+├── code/                   # Project source code
+│   ├── app.py              # Main Streamlit application
+│   ├── config.yaml         # Model & inference parameters
+│   ├── prompts/
+│   │   └── system_prompt.txt # System prompt for argument analysis
+│   └── requirements.txt    # Python dependencies
+├── assignments/            # Course assignments
+├── notebooks/              # Jupyter notebooks
+├── resources/              # Project references & docs
+├── presentations/          # Presentation slides & docs
+└── capstone/               # Capstone project files
+```
 
 ## How to Run
 
-1. Install dependencies:
-```
-pip install -r requirements.txt
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/14k5hy4/MUJ-DS-23FE10CDS00519.git
+   cd MUJ-DS-23FE10CDS00519
+   ```
 
-2. Get a free Groq API key from https://console.groq.com/keys
+2. Install dependencies:
+   ```bash
+   pip install -r code/requirements.txt
+   ```
 
-3. Run the app:
-```
-cd src
-streamlit run app.py
-```
+3. Run the Streamlit app:
+   ```bash
+   cd code
+   streamlit run app.py
+   ```
 
-4. Enter your API key in the sidebar and start analyzing arguments.
+4. Enter your Groq API key in the sidebar and click **Steelman This**.
 
-## Project Structure
-
-```
-argument-steelman/
-├── config.yaml              - model configuration  
-├── prompts/
-│   └── system_prompt.txt    - system prompt for the LLM
-├── src/
-│   └── app.py               - main application (streamlit)
-├── requirements.txt
-└── README.md
-```
-
-## Model Used
-
-- **Model**: Llama 3.1 8B Instant (via Groq)
-- **Context Window**: 128,000 tokens
-- **Max Output**: 8,192 tokens
+## Model Details
+- **Provider**: Groq API
+- **Model**: Auto-detected from active models on account (e.g. `llama-3.1-8b-instant`, `llama3-70b-8192`, `gemma2-9b-it`)
 - **Type**: Text-to-Text
-- **Why this model**: Ultra-fast inference on Groq LPUs, generous free limits (30 RPM, 14,400 RPD), reliable availability
-
-## How It Works
-
-1. User enters an argument in the text box
-2. The argument gets sent to the LLM along with the system prompt
-3. The model analyzes the argument structure, finds weaknesses, and builds a counter-argument
-4. Results are displayed with scores and improvement suggestions
-
-## Tech Stack
-
-- Python
-- Streamlit (frontend)
-- Groq API with Llama 3.3 70B (LLM)
-- PyYAML (config parsing)
+- **Temperature**: 0.7
+- **Max Output**: 4,096 tokens
